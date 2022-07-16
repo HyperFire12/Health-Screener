@@ -1,96 +1,34 @@
 {
   "Conditions": {
-    "Alcohol Poisoning": { "sector": "Emergency Department" },
-    "Anaphylaxis": { "sector": "Emergency Department" },
-    "Bacterial Meningitis": { "sector": "Emergency Department" },
-    "Broken Bone-Left Arm": {
-      "sector": "Pediatrics"
-    },
-    "Broken Bone-Left Leg": {
-      "sector": "Pediatrics"
-    },
-    "Broken Bone-Right Arm": {
-      "sector": "Pediatrics"
-    },
-    "Broken Bone-Right Leg": {
-      "sector": "Pediatrics"
-    },
-    "Broken Ribs": {
-      "sector": "Emergency Department"
-    },
-    "Bronchitis": { "sector": "Cardiology" },
-    "Bruise": {
-      "sector": "Pediatrics"
-    },
-    "Cancer": { "sector": "Cardiology", "symptoms": [""] },
-    "Common Cold": {
-      "sector": "General Admission",
-      "symptoms": [
-        "Nasal Congestion",
-        "Coughing",
-        "Thirst",
-        "Sore Throat",
-        "Migraine"
-      ]
-    },
-    "Concussion": {
-      "sector": "Neurology",
-      "symptoms": [
-        "Dizziness",
-        "Confusion",
-        "Sensitivity to Light",
-        "Migraine",
-        "Nausea",
-        "Ringing Sounds"
-      ]
-    },
-    "COVID-19": { "sector": "Infectious Disease", "symptoms": [""] },
-    "Dementia": { "sector": "Neurology", "symptoms": [""] },
-    "Flu": { "sector": "Infectious Disease", "symptoms": [""] },
-    "Food Poisoning": { "sector": "General Admission", "symptoms": [""] },
-    "Heart Attack": {
-      "sector": "Emergency Department",
-      "symptoms": ["Chest Pain", "Confusion", "Nausea", "Pale", "Short Breath"]
-    },
-    "Heat Stroke": { "sector": "Emergency Department", "symptoms": [""] },
-    "Hypothermia": { "sector": "Emergency Department", "symptoms": [""] },
-    "Kidney Failure": { "sector": "Emergency Department", "symptoms": [""] },
-    "Lupus": { "sector": "Cardiology", "symptoms": [""] },
-    "Open Wound-Chest": {
-      "sector": "Pediatrics",
-      "symptoms": ["Bleeding-Chest"]
-    },
-    "Open Wound-Left Arm": {
-      "sector": "Pediatrics",
-      "symptoms": ["Bleeding-Left Arm"]
-    },
-    "Open Wound-Left Leg": {
-      "sector": "Pediatrics",
-      "symptoms": ["Bleeding-Left Leg"]
-    },
-    "Open Wound-Right Arm": {
-      "sector": "Pediatrics",
-      "symptoms": ["Bleeding-Right Arm"]
-    },
-    "Open Wound-Right Leg": {
-      "sector": "Pediatrics",
-      "symptoms": ["Bleeding-Right Leg"]
-    },
-    "Severe Burns": { "sector": "Pediatrics", "symptoms": [""] },
-    "Stroke": {
-      "sector": "Emergency Department",
-      "symptoms": [
-        "Numbness",
-        "Confusion",
-        "Nausea",
-        "Short Breath",
-        "Pale",
-        "Dizziness",
-        "Vision Impairment",
-        "Headache",
-        "Confusion"
-      ]
-    },
-    "Sunburn": { "sector": "Pediatrics", "symptoms": [""] }
+    "Alcohol Poisoning": { "sector": "Emergency Department", "severity": 8, "location": "stomach" },
+    "Anaphylaxis": { "sector": "Emergency Department", "severity": 8, "location": "neck" },
+    "Bacterial Meningitis": { "sector": "Emergency Department", "severity": 9, "location": "full" },
+    "Broken Bone-Left Arm": { "sector": "Pediatrics", "severity": 5, "location": "left arm" },
+    "Broken Bone-Left Leg": { "sector": "Pediatrics", "severity": 5, "location": "left leg" },
+    "Broken Bone-Right Arm": { "sector": "Pediatrics", "severity": 5, "location": "right arm" },
+    "Broken Bone-Right Leg": { "sector": "Pediatrics", "severity": 5, "location": "right leg" },
+    "Broken Ribs": { "sector": "Emergency Department", "severity": 7, "location": "stomach" },
+    "Bronchitis": { "sector": "Cardiology", "severity": 3, "location": "stomach" },
+    "Bruise": { "sector": "Pediatrics", "severity": 2, "location": "full" },
+    "Cancer": { "sector": "Cardiology", "severity": 7, "location": "full" },
+    "Common Cold": { "sector": "General Admission", "severity": 2, "location": "neck" },
+    "Concussion": { "sector": "Neurology", "severity": 8, "location": "head" },
+    "COVID-19": { "sector": "Infectious Disease", "severity": 7, "location": "head" },
+    "Dementia": { "sector": "Neurology", "severity": 4, "location": "head" },
+    "Flu": { "sector": "Infectious Disease", "severity": 3, "location": "full" },
+    "Food Poisoning": { "sector": "General Admission", "severity": 4, "location": "stomach" },
+    "Heart Attack": { "sector": "Emergency Department", "severity": 9, "location": "stomach" },
+    "Heat Stroke": { "sector": "Emergency Department", "severity": 6, "location": "full" },
+    "Hypothermia": { "sector": "Emergency Department", "severity": 7, "location": "full" },
+    "Kidney Failure": { "sector": "Emergency Department", "severity": 8, "location": "stomach" },
+    "Lupus": { "sector": "Cardiology", "severity": 2, "location": "full" },
+    "Open Wound-Chest": { "sector": "Pediatrics", "severity": 6, "location": "stomach" },
+    "Open Wound-Left Arm": { "sector": "Pediatrics", "severity": 6, "location": "left arm" },
+    "Open Wound-Left Leg": { "sector": "Pediatrics", "severity": 6, "location": "left leg" },
+    "Open Wound-Right Arm": { "sector": "Pediatrics", "severity": 6, "location": "right arm" },
+    "Open Wound-Right Leg": { "sector": "Pediatrics", "severity": 6, "location": "right leg" },
+    "Severe Burns": { "sector": "Pediatrics", "severity": 7, "location": "full" },
+    "Stroke": { "sector": "Emergency Department", "severity": 9, "location": "full" },
+    "Sunburn": { "sector": "Pediatrics", "severity": 3, "location": "full" }
   }
 }
