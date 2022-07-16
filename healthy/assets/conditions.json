@@ -1,3 +1,96 @@
 {
-    "Conditions": ["Heart Attack", "Cancer", "Kidney Failure", "Stroke", "Anaphylaxis", "Concussion", "Bacterial Meningitis", "Dementia", "Severe Burns", "COVID-19", "Bronchitis", "Common Cold", "Food Poisoning", "Heat Stroke", "Hypothermia", "Alcohol Poisoning", "Lupus", "Flu", "Sunburn", "Broken Bone-Right Leg", "Broken Bone-Left Leg","Broken Bone-Right Arm", "Broken Bone-Left Arm", "Open Wound-Right Leg","Open Wound-Left Leg","Open Wound-Right Arm", "Open Wound-Left Arm", "Open Wound-Chest", "Broken Ribs", "Bruise"]
+  "Conditions": {
+    "Alcohol Poisoning": { "sector": "Emergency Department" },
+    "Anaphylaxis": { "sector": "Emergency Department" },
+    "Bacterial Meningitis": { "sector": "Emergency Department" },
+    "Broken Bone-Left Arm": {
+      "sector": "Pediatrics"
+    },
+    "Broken Bone-Left Leg": {
+      "sector": "Pediatrics"
+    },
+    "Broken Bone-Right Arm": {
+      "sector": "Pediatrics"
+    },
+    "Broken Bone-Right Leg": {
+      "sector": "Pediatrics"
+    },
+    "Broken Ribs": {
+      "sector": "Emergency Department"
+    },
+    "Bronchitis": { "sector": "Cardiology" },
+    "Bruise": {
+      "sector": "Pediatrics"
+    },
+    "Cancer": { "sector": "Cardiology", "symptoms": [""] },
+    "Common Cold": {
+      "sector": "General Admission",
+      "symptoms": [
+        "Nasal Congestion",
+        "Coughing",
+        "Thirst",
+        "Sore Throat",
+        "Migraine"
+      ]
+    },
+    "Concussion": {
+      "sector": "Neurology",
+      "symptoms": [
+        "Dizziness",
+        "Confusion",
+        "Sensitivity to Light",
+        "Migraine",
+        "Nausea",
+        "Ringing Sounds"
+      ]
+    },
+    "COVID-19": { "sector": "Infectious Disease", "symptoms": [""] },
+    "Dementia": { "sector": "Neurology", "symptoms": [""] },
+    "Flu": { "sector": "Infectious Disease", "symptoms": [""] },
+    "Food Poisoning": { "sector": "General Admission", "symptoms": [""] },
+    "Heart Attack": {
+      "sector": "Emergency Department",
+      "symptoms": ["Chest Pain", "Confusion", "Nausea", "Pale", "Short Breath"]
+    },
+    "Heat Stroke": { "sector": "Emergency Department", "symptoms": [""] },
+    "Hypothermia": { "sector": "Emergency Department", "symptoms": [""] },
+    "Kidney Failure": { "sector": "Emergency Department", "symptoms": [""] },
+    "Lupus": { "sector": "Cardiology", "symptoms": [""] },
+    "Open Wound-Chest": {
+      "sector": "Pediatrics",
+      "symptoms": ["Bleeding-Chest"]
+    },
+    "Open Wound-Left Arm": {
+      "sector": "Pediatrics",
+      "symptoms": ["Bleeding-Left Arm"]
+    },
+    "Open Wound-Left Leg": {
+      "sector": "Pediatrics",
+      "symptoms": ["Bleeding-Left Leg"]
+    },
+    "Open Wound-Right Arm": {
+      "sector": "Pediatrics",
+      "symptoms": ["Bleeding-Right Arm"]
+    },
+    "Open Wound-Right Leg": {
+      "sector": "Pediatrics",
+      "symptoms": ["Bleeding-Right Leg"]
+    },
+    "Severe Burns": { "sector": "Pediatrics", "symptoms": [""] },
+    "Stroke": {
+      "sector": "Emergency Department",
+      "symptoms": [
+        "Numbness",
+        "Confusion",
+        "Nausea",
+        "Short Breath",
+        "Pale",
+        "Dizziness",
+        "Vision Impairment",
+        "Headache",
+        "Confusion"
+      ]
+    },
+    "Sunburn": { "sector": "Pediatrics", "symptoms": [""] }
+  }
 }
