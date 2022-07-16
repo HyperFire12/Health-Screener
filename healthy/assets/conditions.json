@@ -1,0 +1,96 @@
+{
+  "Conditions": {
+    "Alcohol Poisoning": { "sector": "" },
+    "Anaphylaxis": { "sector": "" },
+    "Bacterial Meningitis": { "sector": "" },
+    "Broken Bone-Left Arm": {
+      "sector": ""
+    },
+    "Broken Bone-Left Leg": {
+      "sector": ""
+    },
+    "Broken Bone-Right Arm": {
+      "sector": ""
+    },
+    "Broken Bone-Right Leg": {
+      "sector": ""
+    },
+    "Broken Ribs": {
+      "sector": ""
+    },
+    "Bronchitis": { "sector": "" },
+    "Bruise": {
+      "sector": "Pediatrics"
+    },
+    "Cancer": { "sector": "", "symptoms": [""] },
+    "Common Cold": {
+      "sector": "General Admission",
+      "symptoms": [
+        "Nasal Congestion",
+        "Coughing",
+        "Thirst",
+        "Sore Throat",
+        "Migraine"
+      ]
+    },
+    "Concussion": {
+      "sector": "Neurology",
+      "symptoms": [
+        "Dizziness",
+        "Confusion",
+        "Sensitivity to Light",
+        "Migraine",
+        "Nausea",
+        "Ringing Sounds"
+      ]
+    },
+    "COVID-19": { "sector": "", "symptoms": [""] },
+    "Dementia": { "sector": "", "symptoms": [""] },
+    "Flu": { "sector": "", "symptoms": [""] },
+    "Food Poisoning": { "sector": "", "symptoms": [""] },
+    "Heart Attack": {
+      "sector": "Emergency Department",
+      "symptoms": ["Chest Pain", "Confusion", "Nausea", "Pale", "Short Breath"]
+    },
+    "Heat Stroke": { "sector": "", "symptoms": [""] },
+    "Hypothermia": { "sector": "", "symptoms": [""] },
+    "Kidney Failure": { "sector": "", "symptoms": [""] },
+    "Lupus": { "sector": "", "symptoms": [""] },
+    "Open Wound-Chest": {
+      "sector": "Pediatrics",
+      "symptoms": ["Bleeding-Chest"]
+    },
+    "Open Wound-Left Arm": {
+      "sector": "Pediatrics",
+      "symptoms": ["Bleeding-Left Arm"]
+    },
+    "Open Wound-Left Leg": {
+      "sector": "Pediatrics",
+      "symptoms": ["Bleeding-Left Leg"]
+    },
+    "Open Wound-Right Arm": {
+      "sector": "Pediatrics",
+      "symptoms": ["Bleeding-Right Arm"]
+    },
+    "Open Wound-Right Leg": {
+      "sector": "Pediatrics",
+      "symptoms": ["Bleeding-Right Leg"]
+    },
+    "Severe Burns": { "sector": "", "symptoms": [""] },
+    "Stroke": {
+      "sector": "Emergency Department",
+      "symptoms": [
+        "Numbness",
+        "Confusion",
+        "Nausea",
+        "Short Breath",
+        "Pale",
+        "Dizziness",
+        "Vision Impairment",
+        "Headache",
+        "Confusion"
+      ]
+    },
+    "Sunburn": { "sector": "", "symptoms": [""] }
+  }
+}

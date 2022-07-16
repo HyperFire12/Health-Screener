@@ -1,17 +1,10 @@
 {
   "hosting": {
-    "site": "wec-programming-spring-2022",
     "public": "public",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
     ]
   }
 }
