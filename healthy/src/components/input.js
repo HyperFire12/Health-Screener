@@ -1,11 +1,12 @@
 import {React, useState} from 'react';
 
+import symptoms from "../assets/justSymptoms.json";
 import conditions from "../assets/justConditions.json";
 import findCond from "../assets/symptoms.json";
 import findSector from "../assets/conditions.json";
 
 const MainPage = () => {
-    const [symptoms, setSymptoms] = useState('');
+    const [something, setSymptoms] = useState('');
 
     const changeBoth = event => {
         Chris(event);
@@ -17,13 +18,13 @@ const MainPage = () => {
         console.log("the symptom is", event.target.value);
     }
 
-    const asdf = {};
+    let asdf = {};
 
     const Chris = event => {
         changeSymptoms(event);
         changeOutput(event);
         let condArr = []; // push conditions into here from patent's symptoms
-        let patientSympArray = JSON.stringify(symptoms).Symptoms; // input
+        let patientSympArray = something.Symptoms; // input
         let allSympArray = symptoms.Symptoms; // array of symptoms
         let allCondArray = conditions.Conditions; // array of conditions
     
@@ -68,7 +69,7 @@ const MainPage = () => {
                 }
             }
             obj = {
-                "Name": symptoms.Name,
+                "Name": something.Name,
                 "Condition": potentialCond[0],
                 "Sector": sector,
                 "Affected Area": ""
@@ -92,7 +93,7 @@ const MainPage = () => {
                 }
             }
             obj = {
-                "Name": symptoms.Name,
+                "Name": something.Name,
                 "Potential Conditions": condition,
                 "Sector": sector,
                 "Affected Area": location
@@ -115,7 +116,7 @@ const MainPage = () => {
         <div style={{display:"flex", flexDirection:"column", fontFamily:"monospace", fontSize:"20px"}}>
             <label style={{margin:"5px"}}>Input</label>
             <textarea // when this textbox receives the input, it will update input box AND output box
-            value={symptoms}
+            value={something}
             onChange={changeBoth}
             style={{width:"30vw", height:"30vw", fontSize:"15px", marginRight:"20px", padding:"10px", resize:"none"}}
             />
