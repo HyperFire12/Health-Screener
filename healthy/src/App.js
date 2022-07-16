@@ -20,7 +20,7 @@ function App() {
   const app = initializeApp(firebaseConfig);
 
   const [symptoms, setSymptoms] = useState('');
-  const [heat, setHeat] = useState(convertToHeat("", 3));
+  const [heat, setHeat] = useState([]);
 
   useEffect(() => {
     console.log(symptoms);
@@ -45,6 +45,79 @@ function App() {
       >
         Submit
       </Button>
+      <Button
+        variant="contained"
+        sx={{ position: "absolute", left: 10, top: 110 }}
+        onClick={() => {
+          setHeat(convertToHeat("head", 3));
+        }}
+      >
+        head
+      </Button>
+      <Button
+        variant="contained"
+        sx={{ position: "absolute", left: 10, top: 160 }}
+        onClick={() => {
+          setHeat(convertToHeat("neck", 3));
+        }}
+      >
+        neck
+      </Button>
+      <Button
+        variant="contained"
+        sx={{ position: "absolute", left: 10, top: 210 }}
+        onClick={() => {
+          setHeat(convertToHeat("stomach", 3));
+        }}
+      >
+        body
+      </Button>
+      <Button
+        variant="contained"
+        sx={{ position: "absolute", left: 110, top: 110 }}
+        onClick={() => {
+          setHeat(convertToHeat("left arm", 3));
+        }}
+      >
+        left arm
+      </Button>
+      <Button
+        variant="contained"
+        sx={{ position: "absolute", left: 110, top: 160 }}
+        onClick={() => {
+          setHeat(convertToHeat("right arm", 3));
+        }}
+      >
+        right arm
+      </Button>
+      <Button
+        variant="contained"
+        sx={{ position: "absolute", left: 110, top: 210 }}
+        onClick={() => {
+          setHeat(convertToHeat("left leg", 3));
+        }}
+      >
+        left leg
+      </Button>
+      <Button
+        variant="contained"
+        sx={{ position: "absolute", left: 110, top: 260 }}
+        onClick={() => {
+          setHeat(convertToHeat("right leg", 3));
+        }}
+      >
+        right leg
+      </Button>
+      <Button
+        variant="contained"
+        sx={{ position: "absolute", left: 10, top: 260 }}
+        onClick={() => {
+          setHeat(convertToHeat("", 3));
+        }}
+      >
+        full
+      </Button>
+
       <HumanHeat heat={heat} />
     </div>
   );
