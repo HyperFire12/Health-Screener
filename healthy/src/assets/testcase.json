@@ -1,0 +1,7 @@
+{
+    "Name": "John Williams",
+    "Age": 43,
+    "Weight": 86,
+    "Height": 1.65,
+    "Symptoms": ["Chest Pain", "Nausea", "Short Breath", "Confusion", "Pale"]
+}
