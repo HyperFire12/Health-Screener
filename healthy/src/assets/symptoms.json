@@ -43,7 +43,7 @@
     {"Nasal Congestion": ["Common Cold", "COVID-19", "Flu"]},
     {"Nausea": ["Anaphylaxis", "Broken Bone-Left Arm", "Broken Bone-Left Leg", "Broken Bone-Right Arm", "Broken Bone-Right Leg", "Broken Ribs", "Cancer", "Concussion", "Flu", "Food Poisoning", "Heart Attack", "Heat Stroke", "Kidney Failure", "Stroke", "Sunburn"]},
     {"Numbness": ["Severe Burns", "Stroke"]},
-    {"Pale Skin": ["Alcohol Poisoning", "Concussion", "Heart Attack", "Stroke"]},
+    {"Pale": ["Alcohol Poisoning", "Concussion", "Heart Attack", "Stroke"]},
     {"Rashes": ["Anaphylaxis", "Bacterial Meningitis", "COVID-19", "Lupus"]},
     {"Ringing Sounds": ["Concussion"]},
     {"Sensitivity to Light": ["Bacterial Meningitis", "Concussion", "Lupus"]},
