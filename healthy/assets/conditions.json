@@ -1,28 +1,28 @@
 {
   "Conditions": {
-    "Alcohol Poisoning": { "sector": "" },
-    "Anaphylaxis": { "sector": "" },
-    "Bacterial Meningitis": { "sector": "" },
+    "Alcohol Poisoning": { "sector": "Emergency Department" },
+    "Anaphylaxis": { "sector": "Emergency Department" },
+    "Bacterial Meningitis": { "sector": "Emergency Department" },
     "Broken Bone-Left Arm": {
-      "sector": ""
+      "sector": "Pediatrics"
     },
     "Broken Bone-Left Leg": {
-      "sector": ""
+      "sector": "Pediatrics"
     },
     "Broken Bone-Right Arm": {
-      "sector": ""
+      "sector": "Pediatrics"
     },
     "Broken Bone-Right Leg": {
-      "sector": ""
+      "sector": "Pediatrics"
     },
     "Broken Ribs": {
-      "sector": ""
+      "sector": "Emergency Department"
     },
-    "Bronchitis": { "sector": "" },
+    "Bronchitis": { "sector": "Cardiology" },
     "Bruise": {
       "sector": "Pediatrics"
     },
-    "Cancer": { "sector": "", "symptoms": [""] },
+    "Cancer": { "sector": "Cardiology", "symptoms": [""] },
     "Common Cold": {
       "sector": "General Admission",
       "symptoms": [
@@ -44,18 +44,18 @@
         "Ringing Sounds"
       ]
     },
-    "COVID-19": { "sector": "", "symptoms": [""] },
-    "Dementia": { "sector": "", "symptoms": [""] },
-    "Flu": { "sector": "", "symptoms": [""] },
-    "Food Poisoning": { "sector": "", "symptoms": [""] },
+    "COVID-19": { "sector": "Infectious Disease", "symptoms": [""] },
+    "Dementia": { "sector": "Neurology", "symptoms": [""] },
+    "Flu": { "sector": "Infectious Disease", "symptoms": [""] },
+    "Food Poisoning": { "sector": "General Admission", "symptoms": [""] },
     "Heart Attack": {
       "sector": "Emergency Department",
       "symptoms": ["Chest Pain", "Confusion", "Nausea", "Pale", "Short Breath"]
     },
-    "Heat Stroke": { "sector": "", "symptoms": [""] },
-    "Hypothermia": { "sector": "", "symptoms": [""] },
-    "Kidney Failure": { "sector": "", "symptoms": [""] },
-    "Lupus": { "sector": "", "symptoms": [""] },
+    "Heat Stroke": { "sector": "Emergency Department", "symptoms": [""] },
+    "Hypothermia": { "sector": "Emergency Department", "symptoms": [""] },
+    "Kidney Failure": { "sector": "Emergency Department", "symptoms": [""] },
+    "Lupus": { "sector": "Cardiology", "symptoms": [""] },
     "Open Wound-Chest": {
       "sector": "Pediatrics",
       "symptoms": ["Bleeding-Chest"]
@@ -76,7 +76,7 @@
       "sector": "Pediatrics",
       "symptoms": ["Bleeding-Right Leg"]
     },
-    "Severe Burns": { "sector": "", "symptoms": [""] },
+    "Severe Burns": { "sector": "Pediatrics", "symptoms": [""] },
     "Stroke": {
       "sector": "Emergency Department",
       "symptoms": [
@@ -91,6 +91,6 @@
         "Confusion"
       ]
     },
-    "Sunburn": { "sector": "", "symptoms": [""] }
+    "Sunburn": { "sector": "Pediatrics", "symptoms": [""] }
   }
 }
