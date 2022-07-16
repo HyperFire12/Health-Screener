@@ -1,8 +1,10 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { initializeApp } from "firebase/app";
 import TextField from "@mui/material/TextField";
 import HumanHeat from "./components/human";
+import { Button } from "@mui/material";
+import convertToHeat from "./components/convertToHeat";
 
 function App() {
   const firebaseConfig = {
@@ -17,18 +19,33 @@ function App() {
 
   const app = initializeApp(firebaseConfig);
 
-  const [symptoms, setSymptoms] = useState([]);
+  const [symptoms, setSymptoms] = useState('');
+  const [heat, setHeat] = useState(convertToHeat("", 3));
+
+  useEffect(() => {
+    console.log(symptoms);
+  }, [symptoms]);
+
+  // setHeat(convertToHeat('head', 3));
 
   return (
     <div className="App">
       <TextField
+        placeholder="Data"
         value={symptoms}
-        onChange={(value) => setSymptoms(value)}
+        onChange={(e) => setSymptoms(e.target.value)}
         sx={{ position: "absolute", left: 10, top: 10 }}
         label="Data"
         variant="standard"
       />
-      <HumanHeat heat={[0]} />
+      <Button
+        variant="contained"
+        sx={{ position: "absolute", left: 10, top: 60 }}
+        onClick={() => {}}
+      >
+        Submit
+      </Button>
+      <HumanHeat heat={heat} />
     </div>
   );
 }
