@@ -1,6 +1,9 @@
 import './App.css';
 import { initializeApp } from "firebase/app";
 
+import Input from './components/frontpage';
+import ParseButton from './components/parseButton';
+
 function App() {
 
   const firebaseConfig = {
@@ -18,7 +21,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-
+        <p>pp</p>
+        <Input />
+        <ParseButton />
       </header>
     </div>
   );
