@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "wec-programming-spring-2022",
     "public": "public",
     "ignore": [
       "firebase.json",
