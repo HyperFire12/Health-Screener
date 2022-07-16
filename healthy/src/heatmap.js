@@ -1,11 +1,14 @@
 import symptoms from "./assets/justSymptoms.json";
+import conditions from "./assets/justConditions.json";
 import testcase from "./assets/testcase.json";
 import findCond from "./assets/symptoms.json";
+import findSector from "./assets/conditions.json";
 
 export default function heatmap() {
     let condArr = []; // push conditions into here from patent's symptoms
     let patientSympArray = testcase.Symptoms; // input
     let allSympArray = symptoms.Symptoms; // array of symptoms
+    let allCondArray = conditions.Conditions; // array of conditions
 
     for (let i = 0; i < patientSympArray.length; i++) {
         for (let j = 0; j < allSympArray.length; j++) {
@@ -41,23 +44,44 @@ export default function heatmap() {
     }
 
     let obj = {};
+    let sector = "";
 
-    if (potentialCond.length == 1) {
+    if (potentialCond.length === 1) {
         console.log("only one possible condition");
+        for (let i = 0; i < allCondArray.length; i++) {
+            if (potentialCond[0] === allCondArray[i]){ // if patient's symptom is found in the array of symtoms, push the symptoms w/conditions
+                sector = findSector.Conditions[i].sector;
+            }
+        }
         obj = {
             "Name": testcase.Name,
             "Condition": potentialCond[0],
-            "Sector": "sector goes here",
+            "Sector": sector,
             "Affected Area": ""
         }
     }
     else {
         console.log("many possible conditions");
+        let severe = 0;
+        let condition = "";
+        let location = "";
+        for (let i = 0; i < potentialCond.length; i++) { // going through what conditions you MIGHT have
+            for(let j = 0; j < allCondArray.length; j++){ // searching through ALL existing conditions
+                if (potentialCond[i] === allCondArray[j]){ // if there is a match
+                    if(severe < parseInt(findSector.Conditions[j][potentialCond[i]].severity)){
+                        sector = findSector.Conditions[j][potentialCond[i]].sector;
+                        severe = findSector.Conditions[j][potentialCond[i]].severity;
+                        location = findSector.Conditions[j][potentialCond[i]].location;
+                        condition = allCondArray[j];
+                    }
+                }
+            }
+        }
         obj = {
             "Name": testcase.Name,
-            "Potential Conditions": potentialCond,
-            "Sector": "sector goes here",
-            "Affected Area": ""
+            "Potential Conditions": condition,
+            "Sector": sector,
+            "Affected Area": location
         }
     }
 
