@@ -1,8 +1,10 @@
-import './App.css';
+import "./App.css";
+import React, { useState } from "react";
 import { initializeApp } from "firebase/app";
+import TextField from "@mui/material/TextField";
+import HumanHeat from "./components/human";
 
 function App() {
-
   const firebaseConfig = {
     apiKey: process.env.REACT_APP_API_KEY,
     authDomain: process.env.REACT_APP_AUTH_DOMAIN,
@@ -14,12 +16,19 @@ function App() {
   };
 
   const app = initializeApp(firebaseConfig);
-  
+
+  const [symptoms, setSymptoms] = useState([]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <p>hello</p>
-      </header>
+      <TextField
+        value={symptoms}
+        onChange={(value) => setSymptoms(value)}
+        sx={{ position: "absolute", left: 10, top: 10 }}
+        label="Data"
+        variant="standard"
+      />
+      <HumanHeat heat={[0]} />
     </div>
   );
 }
