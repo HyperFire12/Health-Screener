@@ -1,10 +1,14 @@
 import symptoms from "./assets/symptoms.json";
 import conditions from "./assets/conditions.json";
-import testcase from "./assets/testcase.json";
+// import testcase from "./assets/testcase.json";
 
-export default function heatmap() {
+export default function heatmap(input) {
+    let patient = JSON.parse(input);
+    console.log(patient);
+
+
     let potentialConditions = []; // push conditions into here from patient's symptoms (WAS condArr)
-    let patientSymptoms = testcase.Symptoms; // input -- WILL NOT BE HERE LATER (WAS patientSympArray)
+    let patientSymptoms = patient.Symptoms; // input -- WILL NOT BE HERE LATER (WAS patientSympArray)
 
     console.log("//// BREAKING ////");
 
@@ -55,11 +59,11 @@ export default function heatmap() {
             }
         }
         patientDiagnosis = {
-            "Name": testcase.Name,
+            "Name": patient.Name,
             "Condition": likelyConditions[0],
             "Sector": sector,
             "Affected Area": location
-        }
+        } // TODO: FIGURE OUT WHY SECTOR AND AFFECTED AREA DON'T S  HOW UPZ
     }
     else {
         console.log("many possible conditions");
@@ -77,7 +81,7 @@ export default function heatmap() {
             }
         }
         patientDiagnosis = {
-            "Name": testcase.Name,
+            "Name": patient.Name,
             "Potential Condition": condition,
             "Sector": sector,
             "Affected Area": location
@@ -85,6 +89,6 @@ export default function heatmap() {
     }
 
     console.log(patientDiagnosis);
-    return patientDiagnosis;
+    return JSON.stringify(patientDiagnosis, null, 2);
 
 }

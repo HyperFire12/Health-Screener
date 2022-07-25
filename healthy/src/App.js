@@ -5,11 +5,10 @@ import TextField from "@mui/material/TextField";
 import HumanHeat from "./components/human";
 import MainPage from "./components/input";
 import Banner from "./components/banner";
-import heatmap from './heatmap';
 
 function App() {
 
-  heatmap();
+
   const firebaseConfig = {
     apiKey: process.env.REACT_APP_API_KEY,
     authDomain: process.env.REACT_APP_AUTH_DOMAIN,
@@ -21,8 +20,6 @@ function App() {
   };
 
   const app = initializeApp(firebaseConfig);
-
-  const [symptoms, setSymptoms] = useState('');
 
   return (
     <div className="App" style={{padding:"20px"}}>
