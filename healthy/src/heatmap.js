@@ -1,90 +1,90 @@
-import symptoms from "./assets/justSymptoms.json";
-import conditions from "./assets/justConditions.json";
+import symptoms from "./assets/symptoms.json";
+import conditions from "./assets/conditions.json";
 import testcase from "./assets/testcase.json";
-import findCond from "./assets/symptoms.json";
-import findSector from "./assets/conditions.json";
 
 export default function heatmap() {
-    let condArr = []; // push conditions into here from patent's symptoms
-    let patientSympArray = testcase.Symptoms; // input
-    let allSympArray = symptoms.Symptoms; // array of symptoms
-    let allCondArray = conditions.Conditions; // array of conditions
+    let potentialConditions = []; // push conditions into here from patient's symptoms (WAS condArr)
+    let patientSymptoms = testcase.Symptoms; // input -- WILL NOT BE HERE LATER (WAS patientSympArray)
 
-    for (let i = 0; i < patientSympArray.length; i++) {
-        for (let j = 0; j < allSympArray.length; j++) {
-            if (patientSympArray[i] === allSympArray[j]){ // if patient's symptom is found in the array of symtoms, push the symptoms w/conditions
-                condArr.push(findCond.Symptoms[j]); // push the symp+cond to condArr
-                console.log("pushed to condarr:", condArr[i]);
+    console.log("//// BREAKING ////");
+
+    for (let i = 0; i < patientSymptoms.length; i++) { // loop through patient's symptoms
+        for (let j = 0; j < symptoms.Symptoms.length; j++) { // and loop through list of symptoms
+            if (patientSymptoms[i] === symptoms.Symptoms[j].name){ // if patient's symptom is found in the array of symtoms, push the symptoms w/conditions
+                potentialConditions.push(symptoms.Symptoms[j]); // push the symp+cond to condArr
+                console.log("pushed to potential conditions:", potentialConditions[i]);
             }
         }
     }
-    // console.log(patientSympArray[0])
-    // console.log(allSympArray.length); 
 
     const conditionMap = new Map();
 
-    for(let i = 0; i < patientSympArray.length; i++){ // loop through patient's symptoms
-        console.log("Symptom:", patientSympArray[i]);
-        for(let j = 0; j < condArr[i][patientSympArray[i]].length; j++){ // looping
-            conditionMap.set(condArr[i][patientSympArray[i]][j], conditionMap.get(condArr[i][patientSympArray[i]][j]) + 1 || 1);
-            console.log("Possible condition:", condArr[i][patientSympArray[i]][j]);
+    for (let i = 0; i < patientSymptoms.length; i++) { // loop through patient's symptoms
+        console.log("Symptom:", patientSymptoms[i]);
+        console.log("Potential conditions:", potentialConditions);
+        for (let j = 0; j < potentialConditions[i].conditions.length; j++) {
+            conditionMap.set(potentialConditions[i].conditions[j], conditionMap.get(potentialConditions[i].conditions[j]) + 1 || 1);
+            console.log("Possible condition:", potentialConditions[i].conditions[j]);
         }
     }
     console.log(conditionMap);
     let max = Math.max(...conditionMap.values());
     console.log("highest value is", max);
 
-    let potentialCond = [];
+    let likelyConditions = [];
 
     for(let [key, value] of conditionMap.entries()) {
         if (value === max) {
             console.log("It seems as though you may have", key);
-            potentialCond.push(key);
+            likelyConditions.push(key);
         }
     }
 
-    let obj = {};
-    let sector = "";
+    let patientDiagnosis = {};
+    let sector;
+    let location;
+    let severity; // do something with this
+    let condition;
 
-    if (potentialCond.length === 1) {
+    if (likelyConditions.length === 1) {
         console.log("only one possible condition");
-        for (let i = 0; i < allCondArray.length; i++) {
-            if (potentialCond[0] === allCondArray[i]){ // if patient's symptom is found in the array of symtoms, push the symptoms w/conditions
-                sector = findSector.Conditions[i].sector;
+        for (let i = 0; i < conditions.Conditions.length; i++) {
+            if (likelyConditions[0] === conditions.Conditions[i]) { // when the condition is found, push the sector
+                sector = conditions.Conditions[i].sector;
+                location = conditions.Conditions[i].location;
             }
         }
-        obj = {
+        patientDiagnosis = {
             "Name": testcase.Name,
-            "Condition": potentialCond[0],
+            "Condition": likelyConditions[0],
             "Sector": sector,
-            "Affected Area": ""
+            "Affected Area": location
         }
     }
     else {
         console.log("many possible conditions");
-        let severe = 0;
-        let condition = "";
-        let location = "";
-        for (let i = 0; i < potentialCond.length; i++) { // going through what conditions you MIGHT have
-            for(let j = 0; j < allCondArray.length; j++){ // searching through ALL existing conditions
-                if (potentialCond[i] === allCondArray[j]){ // if there is a match
-                    if(severe < parseInt(findSector.Conditions[j][potentialCond[i]].severity)){
-                        sector = findSector.Conditions[j][potentialCond[i]].sector;
-                        severe = findSector.Conditions[j][potentialCond[i]].severity;
-                        location = findSector.Conditions[j][potentialCond[i]].location;
-                        condition = allCondArray[j];
+        severity = 0;
+        for (let i = 0; i < likelyConditions.length; i++) { // going through what conditions you MIGHT have
+            for (let j = 0; j < conditions.Conditions.length; j++) { // searching through ALL existing conditions
+                if (likelyConditions[i] === conditions.Conditions[j].name){ // if there is a match
+                    if(severity < parseInt(conditions.Conditions[j].severity)) { // if this match has a higher severity, prioritize and set as new condition
+                        sector = conditions.Conditions[j].sector;
+                        severity = conditions.Conditions[j].severity;
+                        location = conditions.Conditions[j].location;
+                        condition = conditions.Conditions[j].name;
                     }
                 }
             }
         }
-        obj = {
+        patientDiagnosis = {
             "Name": testcase.Name,
-            "Potential Conditions": condition,
+            "Potential Condition": condition,
             "Sector": sector,
             "Affected Area": location
         }
     }
 
-    console.log(obj);
+    console.log(patientDiagnosis);
+    return patientDiagnosis;
 
 }
