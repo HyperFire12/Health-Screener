@@ -1,5 +1,10 @@
-import './App.css';
+// import "./App.css";
+import React, { useState } from "react";
 import { initializeApp } from "firebase/app";
+import TextField from "@mui/material/TextField";
+import HumanHeat from "./components/human";
+import MainPage from "./components/input";
+import Banner from "./components/banner";
 import heatmap from './heatmap';
 
 function App() {
@@ -16,12 +21,21 @@ function App() {
   };
 
   const app = initializeApp(firebaseConfig);
-  
+
+  const [symptoms, setSymptoms] = useState('');
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>hello</p>
-      </header>
+    <div className="App" style={{padding:"20px"}}>
+      <Banner />
+      {/* <TextField
+        value={symptoms}
+        onChange={(value) => setSymptoms(value)}
+        sx={{ position: "absolute", left: 10, top: 10 }}
+        label="Data"
+        variant="standard"
+      /> */}
+      <MainPage />
+      <HumanHeat heat={[0]} />
     </div>
   );
 }
