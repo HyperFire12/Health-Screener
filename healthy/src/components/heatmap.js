@@ -5,7 +5,6 @@ export default function heatmap(input) {
     let patient = JSON.parse(input);
     console.log(patient);
 
-
     let potentialConditions = []; // push conditions into here from patient's symptoms (WAS condArr)
     let patientSymptoms = patient.Symptoms; // input -- WILL NOT BE HERE LATER (WAS patientSympArray)
 
@@ -49,22 +48,18 @@ export default function heatmap(input) {
     let severity;
     let condition;
 
-    if (likelyConditions.length === 1) {
+    if (likelyConditions.length === 1) { // only one possible condition
         console.log("only one possible condition");
         for (let i = 0; i < conditions.Conditions.length; i++) {
-            if (likelyConditions[0] === conditions.Conditions[i]) { // when the condition is found, push the sector
+            if (likelyConditions[0] === conditions.Conditions[i].name) { // when the condition is found, push the sector
                 sector = conditions.Conditions[i].sector;
+                severity = conditions.Conditions[i].severity;
                 location = conditions.Conditions[i].location;
+                condition = likelyConditions[0];
             }
         }
-        patientDiagnosis = {
-            "Name": patient.Name,
-            "Condition": likelyConditions[0],
-            "Sector": sector,
-            // "Affected Area": location
-        } // TODO: FIGURE OUT WHY SECTOR AND AFFECTED AREA DON'T S  HOW UPZ
     }
-    else {
+    else { // multiple conditions -> choose most severe
         console.log("many possible conditions");
         severity = 0;
         for (let i = 0; i < likelyConditions.length; i++) { // going through what conditions you MIGHT have
@@ -79,20 +74,18 @@ export default function heatmap(input) {
                 }
             }
         }
-        patientDiagnosis = {
-            "Name": patient.Name,
-            "Potential Condition": condition,
-            "Sector": sector,
-            // "Affected Area": location
-        }
+    }
+    patientDiagnosis = {
+        "Name": patient.Name,
+        "Potential Condition": condition,
+        "Sector": sector
     }
 
     console.log(patientDiagnosis);
+
     let heatmapInfo = [location, severity];
 
     let returnInfo = [JSON.stringify(patientDiagnosis, null, 2), heatmapInfo];
-
-    console.log("HELLOM RETURNING", returnInfo[0], returnInfo[1]);
     
     return returnInfo;
 
