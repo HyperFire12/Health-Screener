@@ -1,6 +1,8 @@
 import {React, useState} from 'react';
 
-import heatmap from "../heatmap.js";
+import heatmap from "./heatmap.js";
+import convertToHeat from "./convertToHeat";
+import HumanHeat from "./human.js";
 
 const MainPage = () => {
     const [inputSymptoms, setSymptoms] = useState('');
@@ -8,13 +10,16 @@ const MainPage = () => {
     const changeSymptoms = event => {
         setSymptoms(event.target.value); // changes our input box
 
-        setOutput(heatmap(event.target.value));
+        setOutput(heatmap(event.target.value)[0]);
 
-        console.log("heatmapping:", heatmap(event.target.value));
+        setHeat(convertToHeat(heatmap(event.target.value)[1]));
 
+        // console.log("heatmapping:", JSON.stringify(heatmap(event.target.value)[0]));
     }
 
     const [output, setOutput] = useState('');
+
+    const [heat, setHeat] = useState([]);
 
     return (
       <div className="App" style={{display:"flex", padding:"10px"}}>
@@ -34,6 +39,7 @@ const MainPage = () => {
                 style={{width:"30vw", height:"30vw", fontSize:"15px", marginRight:"20px", padding:"10px", resize:"none"}}
                 />
         </div>
+        <HumanHeat heat={heat} />
       </div>
     );
 }

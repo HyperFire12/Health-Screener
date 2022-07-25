@@ -1,6 +1,5 @@
-import symptoms from "./assets/symptoms.json";
-import conditions from "./assets/conditions.json";
-// import testcase from "./assets/testcase.json";
+import symptoms from "../assets/symptoms.json";
+import conditions from "../assets/conditions.json";
 
 export default function heatmap(input) {
     let patient = JSON.parse(input);
@@ -47,7 +46,7 @@ export default function heatmap(input) {
     let patientDiagnosis = {};
     let sector;
     let location;
-    let severity; // do something with this
+    let severity;
     let condition;
 
     if (likelyConditions.length === 1) {
@@ -62,7 +61,7 @@ export default function heatmap(input) {
             "Name": patient.Name,
             "Condition": likelyConditions[0],
             "Sector": sector,
-            "Affected Area": location
+            // "Affected Area": location
         } // TODO: FIGURE OUT WHY SECTOR AND AFFECTED AREA DON'T S  HOW UPZ
     }
     else {
@@ -84,11 +83,17 @@ export default function heatmap(input) {
             "Name": patient.Name,
             "Potential Condition": condition,
             "Sector": sector,
-            "Affected Area": location
+            // "Affected Area": location
         }
     }
 
     console.log(patientDiagnosis);
-    return JSON.stringify(patientDiagnosis, null, 2);
+    let heatmapInfo = [location, severity];
+
+    let returnInfo = [JSON.stringify(patientDiagnosis, null, 2), heatmapInfo];
+
+    console.log("HELLOM RETURNING", returnInfo[0], returnInfo[1]);
+    
+    return returnInfo;
 
 }
