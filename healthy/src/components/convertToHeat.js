@@ -1,4 +1,6 @@
-const convertToHeat = (location, severity) => {
+const convertToHeat = (input) => {
+  let location = input[0];
+  let severity = input[1];
   let heat = [];
 
   // head, neck, stomach, left arm, right arm, left leg, right leg, full
