@@ -1,9 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { initializeApp } from "firebase/app";
-import TextField from "@mui/material/TextField";
-// import HumanHeat from "./components/human";
-import { Button } from "@mui/material";
-// import convertToHeat from "./components/convertToHeat";
 import MainPage from "./components/input";
 import Banner from "./components/banner";
 
@@ -20,15 +16,6 @@ function App() {
   };
 
   const app = initializeApp(firebaseConfig);
-
-  const [symptoms, setSymptoms] = useState('');
-  const [heat, setHeat] = useState([]);
-
-  useEffect(() => {
-    console.log(symptoms);
-  }, [symptoms]);
-
-  // setHeat(convertToHeat('head', 3));
 
 return (
     <div className="App" style={{padding:"20px"}}>

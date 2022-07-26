@@ -3,44 +3,47 @@ import {React, useState} from 'react';
 import heatmap from "./heatmap.js";
 import convertToHeat from "./convertToHeat";
 import HumanHeat from "./human.js";
+import { TextField } from '@mui/material';
 
 const MainPage = () => {
-    const [inputSymptoms, setSymptoms] = useState('');
+  const [inputSymptoms, setSymptoms] = useState('');
 
-    const changeSymptoms = event => {
-        setSymptoms(event.target.value); // changes our input box
+  const changeSymptoms = event => {
+      setSymptoms(event.target.value); // changes our input box
 
-        setOutput(heatmap(event.target.value)[0]);
+      setOutput(heatmap(event.target.value)[0]);
 
-        setHeat(convertToHeat(heatmap(event.target.value)[1]));
+      setHeat(convertToHeat(heatmap(event.target.value)[1]));
 
-        // console.log("heatmapping:", JSON.stringify(heatmap(event.target.value)[0]));
-    }
+      // console.log("heatmapping:", JSON.stringify(heatmap(event.target.value)[0]));
+  }
 
-    const [output, setOutput] = useState('');
+  const [output, setOutput] = useState('');
 
-    const [heat, setHeat] = useState([]);
+  const [heat, setHeat] = useState([]);
 
-    return (
-      <div className="App" style={{display:"flex", padding:"10px"}}>
-        <div style={{display:"flex", flexDirection:"column", fontFamily:"monospace", fontSize:"20px"}}>
-            <label style={{margin:"5px"}}>Input</label>
-            <textarea // when this textbox receives the input, it will update input box AND output box
-            value={inputSymptoms}
-            onChange={changeSymptoms}
-            style={{width:"30vw", height:"30vw", fontSize:"15px", marginRight:"20px", padding:"10px", resize:"none"}}
-            />
-        </div>
-        <div style={{display:"flex", flexDirection:"column", fontFamily:"monospace", fontSize:"20px"}}>
-            <label style={{margin:"5px"}}>Output</label>
-            <textarea
-                value={output}
-                disabled
-                style={{width:"30vw", height:"30vw", fontSize:"15px", marginRight:"20px", padding:"10px", resize:"none"}}
-                />
-        </div>
-        <HumanHeat heat={heat} />
-      </div>
-    );
+  return (
+    <div style={{display:"flex", padding:"10px"}}>
+      <TextField
+        id="outlined-multiline-static"
+        label="Input Patient Information"
+        multiline fullWidth
+        rows={20}
+        value={inputSymptoms}
+        onChange={changeSymptoms}
+        style={{width:"30vw", marginRight:"5vw"}}
+      />
+      <TextField
+        id="outlined-multiline-static"
+        label="Patient Diagnosis"
+        multiline fullWidth
+        rows={20}
+        value={output}
+        InputProps={{readOnly:true}}
+        style={{width:"30vw", marginRight:"5vw"}}
+      />
+      <HumanHeat heat={heat} />
+    </div>
+  );
 }
 export default MainPage

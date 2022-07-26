@@ -365,10 +365,10 @@ const HumanHeat = (props) => {
   return (
     <Box
       sx={{
-        position: "absolute",
-        top: 5,
-        right: 5,
-        //backgroundColor: "black",
+        position: "relative",
+        // top: 5,
+        // left: 5,
+        // backgroundColor: "black",
         width: boxDimensions[0] + 10,
         height: boxDimensions[1] + 10,
       }}
